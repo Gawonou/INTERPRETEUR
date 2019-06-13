@@ -21,8 +21,46 @@ Au lancement, votre logiciel doit demander à l’utilisateur d’entrer le nom 
 Une phrase est une suite de 0 ou plus Mot.  Chaque Mot de la phrase peut être entouré d’espace `‘ ‘`, de tabulation `‘\t’` et de fin de ligne `‘\n’`. 
 
 *Mot:*
-
 un mot est une lettre minuscule.  Les lettres de `‘a’` à `‘g’` sont utilisées.  Les mots de `‘a’` à `‘d’` peuvent être suivi, optionnellement, par une valeur entière entre parenthèses.  Il peut y avoir des espaces, tabulation et fin de ligne de chaque côté des parenthèses. 
+
+*fichier1*
+```exemple1
+
+a(2)eeeeeabcd
+
+```
+*fichier*
+```exemple2
+
+a(  16  )     b (   8)
+
+
+
+
+
+           c(4)
+
+
+
+d	(
+
+				2
+
+				
+
+
+)
+```
+
+*fichier3*
+```exemple3
+
+ea(100)c(90)a(100)d(90)a(100)
+fb(100)c(90)b(100)d(90)b(100)
+g
+
+```
+
 
 S’il y a une erreur de syntaxe dans la phrase, votre logiciel doit afficher un message d’erreur contenant le numéro de colonne et de ligne du caractère qui à une erreur.  Le logiciel doit conserver l’information sur le numéro de ligne et de colonne pour chaque Mot.  Ainsi, les erreurs lors de l’interprétation pourront aussi utiliser cette information. 
 Finalement, votre logiciel doit demander à l’utilisateur lequel des trois interpréteurs il doit utiliser.  Pour cela, affichez un menu numérotant les trois interpréteurs.  Aussi, placez un quatrième choix afin de terminer le logiciel
@@ -246,9 +284,9 @@ Il ne reste qu’à afficher le contenu de l’état final (définir un toString
 
 Lors de l’exécution, il peut y avoir des erreurs : 
 
-• Un pop sur une pile vide.
-• Une division par zéro. 
+- Un pop sur une pile vide.
+- Une division par zéro. 
 
 Si une de ces erreurs arrive, il faut afficher un message contenant le nom du mot qui a causé l’erreur avec le numéro de ligne et de colonne où il se trouvait dans le code original. 
 
-Toutes les erreurs dans le logiciel doivent être affichées sur le canal d’erreur (System.err.println) et être suivies d’un appel à System.exi
+Toutes les erreurs dans le logiciel doivent être affichées sur le canal d’erreur (*print()*) et être suivies d’un appel à *exit*
