@@ -2,7 +2,7 @@
 Autour N'TSOUAGLO Kokou Gawonou
 
 """
-
+from abc import ABC, abstractmethod
 import sys 
 
 
@@ -15,8 +15,75 @@ CHOIX_MAL_ENTRE = "\nLe choix mal entré"
 FIN_LOGICIEL = "\n Fin du logiciel"
 MENU ='\n\t\t1- Calculatrice.'+'\n\t\t2- Profil.'+'\n\t\t3- Mistere.'+'\n\t\t4- Fin du logiciel.\n'+ '\nEntrez votre choix : '
 
+
+
+class Expression(ABC):
+	@classmethod
+	@abstractmethod
+	def interprete(self, contexte):
+		pass
+
+
+class ContexteInterpretation(ABC):
+
+	@abstractmethod
+	def a(self, motA):
+		pass
+
+
+	@abstractmethod
+	def a(self, motAv):
+		pass
+     
+
+
+	@abstractmethod
+	def b(self, motB):
+		pass
+
+
+	@abstractmethod
+	def b(self, motBv):
+		pass
+
+
+	@abstractmethod
+	def c(self, motC):
+		pass
+
+
+	@abstractmethod
+	def c(self, motCv):
+		pass
+
+
+	@abstractmethod
+	def d(self, motD):
+		pass
+
+	@abstractmethod
+	def d(self, motDv):
+		pass
+
+
+
+	@abstractmethod
+	def e(self, motE):
+		pass
+
+
+	@abstractmethod
+	def f(self, motF):
+		pass
+
+
+	@abstractmethod
+	def g(self, motG):
+		pass
+	
+
 class Mot:
-	def __init__(self, _mots, _ligne, _colonne,):
+	def __init__(self, _mots, _ligne, _colonne):
 		self.__mots = _mots
 		self.__ligne = _ligne
 		self.__colonne = _colonne
@@ -34,13 +101,26 @@ class Mot:
 		return self.__colonne
 
 
+
+class Motv(Mot):
+	def __init__(self,  _mots, _valeur, _ligne, _colonne):
+		super().__init__(self, _mots, _ligne, _colonne)
+		self__valeur = _valeur
+
+
+	@property
+	def getValeur(self):
+		return self.__valeur
+
+
+
 def fichierlu():
 	la_ligne = []
 	Nomfichier = input(MSG_SOL_FICHIER)
 	try:
 	    with open(Nomfichier, "r") as ff:
 	    	for line in ff :
-	    		la_phrase.append(line)
+	    		la_ligne.append(line)
 	except FileNotFoundError as file1 :
 		print(file1)
 		exit(2)
