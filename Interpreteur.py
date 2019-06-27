@@ -168,7 +168,6 @@ def valideligne(list):
 
 def main():
 	tt = valideligne(fichierlu())
-	print("#################################")
 	print(len(tt))
 	for l in tt :
 		print(l.getMot, l.getLigne, l.getColonne)
