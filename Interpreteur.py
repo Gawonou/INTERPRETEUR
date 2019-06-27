@@ -2,6 +2,7 @@
 Autour N'TSOUAGLO Kokou Gawonou
 
 """
+import logging
 from abc import ABC, abstractmethod
 import sys 
 
@@ -15,6 +16,8 @@ CHOIX_MAL_ENTRE = "\nLe choix mal entré"
 FIN_LOGICIEL = "\n Fin du logiciel"
 MENU ='\n\t\t1- Calculatrice.'+'\n\t\t2- Profil.'+'\n\t\t3- Mistere.'+'\n\t\t4- Fin du logiciel.\n'+ '\nEntrez votre choix : '
 
+logging.basicConfig(filename='test.log', level=logging.DEBUG,
+	                 format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 class Expression(ABC):
@@ -150,7 +153,7 @@ def valideligne(list):
 		for mot in line:
 			col += 1
 			if Motvalide(mot):
-				print(mot, lign, col)
+				logging.debug('mot = {} ligne ={} colonne = {}'.format(mot, lign, col))
 				Les_ligne.append(Mot(mot, lign, col))
 			elif Ingorechar(mot):
 				col += 1
